@@ -10,6 +10,7 @@ namespace SchemaFirstGraphQL
     {
         static async Task Main(string[] args)
         {
+            /*
             //Adding Jedi as a type by writing type Jedi and also define its properties within {}. 
             //Then add jedis to the Query and say it's of type [Jedi] which means it's an array of Jedi. Lastly, we give our Schema.For() a second argument:
             //_.Types.Include<Query>();
@@ -32,6 +33,30 @@ namespace SchemaFirstGraphQL
             var json = await schema.ExecuteAsync(_ =>
             {
                 _.Query = "{ jedis { name, side } }";
+            });
+            */
+
+            //Working with parameters:
+            var schema = Schema.For(@"
+            type Jedi {
+                name: String,
+                side: String,
+                id: ID
+            }
+
+            type Query {
+                hello: String,
+                jedis: [Jedi],
+                jedi(id: ID): Jedi
+            }
+            ", _ =>
+            {
+            _.Types.Include<Query>();
+            });
+
+            var json = await schema.ExecuteAsync(_ =>
+            {
+                _.Query = "{ jedi(id: 1) { name } }";
             });
 
             Console.WriteLine(json);
