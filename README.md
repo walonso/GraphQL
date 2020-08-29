@@ -42,15 +42,30 @@ Query.cs Class handle querys.
 dotnet run
 
 4.  Other Example:
+https://github.com/graphql-dotnet/server
 
 dotnet new console -o CompleteGraphQL
 
 cd CompleteGraphQL
 dotnet add package GraphQL -s https://www.myget.org/F/graphql-dotnet/api/v3/index.json -v 3.0.0-preview-1621
 dotnet add package GraphQL.Server.Transports.AspNetCore --version 3.5.0-alpha0073
+dotnet add package GraphQL.Server.Transports.AspNetCore.SystemTextJson --version 3.5.0-alpha0073
 
 Documentacion parecida a Swagger:
 dotnet add package GraphQL.Server.Ui.Playground --version 3.5.0-alpha0073
 
 Add Entity Framework:
 dotnet add package Microsoft.EntityFrameworkCore --version 3.1.7
+dotnet add package Microsoft.EntityFrameworkCore.Relational --version 3.1.7
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.7
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.7
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+Open URL:  (this is playground, which is the swagger of GraphQL)
+http://localhost:5000/ui/playground
+
+
+https://dhalgara.com/2019/03/20/graphq-role-based-authorization-field-level/
+
