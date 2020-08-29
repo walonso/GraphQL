@@ -40,3 +40,17 @@ Program.cs contains the code to handle querys.
 Query.cs Class handle querys.
 
 dotnet run
+
+4.  Other Example:
+
+dotnet new console -o CompleteGraphQL
+
+cd CompleteGraphQL
+dotnet add package GraphQL -s https://www.myget.org/F/graphql-dotnet/api/v3/index.json -v 3.0.0-preview-1621
+dotnet add package GraphQL.Server.Transports.AspNetCore --version 3.5.0-alpha0073
+
+Documentacion parecida a Swagger:
+dotnet add package GraphQL.Server.Ui.Playground --version 3.5.0-alpha0073
+
+Add Entity Framework:
+dotnet add package Microsoft.EntityFrameworkCore --version 3.1.7
